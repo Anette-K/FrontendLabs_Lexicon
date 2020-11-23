@@ -1,13 +1,5 @@
 
-let threeNumbers = [1, 2, 3];
-
-function sum3numbers1(numberArray) {
-    let result = threeNumbers[0]+threeNumbers[1]+threeNumbers[2];
-    return result;
-
-}
-
-function sum3numbers_reduce(numberArray) {
+function sum3numbers(numberArray) {
 
     //When the loop starts the total value is the number on the far left 
     //and the current number is the one next to it.
@@ -16,5 +8,8 @@ function sum3numbers_reduce(numberArray) {
 
 }
 
-console.log(sum3numbers1(threeNumbers));
-console.log(sum3numbers_reduce(threeNumbers));
+//let inputStrings = ['2', '3', '4']; //output: 9
+let inputStrings = ['1.5', '1.5', '-1']; // output: 2 (not 1..assuming typ-o lab description)
+inputNumbers = inputStrings.map(Number); //Number (builtin) accepts the current value (far right) and it progresses onward.
+
+console.log(sum3numbers(inputNumbers));
