@@ -1,6 +1,6 @@
 function getFigureArea(input) {
     
-// formula: H*W + w*h - w*H . Assuming input is [w,h,W,H]- with rectangle sides belonging in pairs.
+// formula: (H*W + w*h) - w*H . Assuming input is [w,h,W,H]- with rectangle sides belonging in pairs.
     const inputNums = input.map(Number);
 
     const summed = (inputNums[0] * inputNums[1]) + (inputNums[2] * inputNums[3]);
