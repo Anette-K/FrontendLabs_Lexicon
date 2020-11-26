@@ -1,4 +1,4 @@
-class Person {
+module.exports = class Person {
     constructor(firstName, lastName, age, email) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -8,6 +8,9 @@ class Person {
     toString() {
         return this.firstName + ' '+ this.lastName + '(age: ' + this.age + ', email: '+ this.email +')';
     }
-}
-let person = new Person('Maria', 'Petterson', 22, 'mp@gmail.com');
-console.log(''+ person); //gives my toString()
+};
+// let person = new Person('Maria', 'Petterson', 22, 'mp@gmail.com');
+// console.log(''+ person); //gives my toString()
+
+// const _Person = Person;
+// export { _Person as Person };
