@@ -1,4 +1,4 @@
-function fruitOrVeggie(food) {
+function fruitOrVeg(food) {
 
     if (fruits.includes(food)) console.log('Fruit');
     else if (vegetables.includes(food)) console.log('Vegetable');
@@ -8,6 +8,6 @@ function fruitOrVeggie(food) {
 const fruits = ['banana', 'apple', 'kiwi', 'cherry', 'lemon', 'grapes', 'peach'];
 const vegetables = ['tomato', 'cucumber', 'pepper', 'onion', 'garlic', 'parsley'];
 
-fruitOrVeggie('banana');
-fruitOrVeggie('cucumber');
-fruitOrVeggie('pizza');
+fruitOrVeg('banana');
+fruitOrVeg('cucumber');
+fruitOrVeg('pizza');
