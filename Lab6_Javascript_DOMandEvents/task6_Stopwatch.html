@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stopwatch</title>
+</head>
+<body>
+    <div id="time" style="border:3px solid blue; text-align:center; font-size:2em; margin-bottom:10px">00:00</div>
+    <button id="startBtn" onclick="buttonStart()">Start</button>
+    <button id="stopBtn" onclick="buttonStop()" disabled="true">Stop</button>
+    <script>
+
+        var timer = document.getElementById("time");
+        var startBtn = document.getElementById("startBtn");
+        var stopBtn = document.getElementById("stopBtn");
+        
+        window.onload = function() { 
+            
+            watch = new Stopwatch(timer); 
+        }
+        function buttonStart() {
+            watch.reset()
+            stopBtn.disabled = false;
+            startBtn.disabled = true;    
+            watch.start();
+        }
+        function buttonStop() {
+            stopBtn.disabled = true;
+            startBtn.disabled = false;   
+            watch.stop();
+        }
+
+        function Stopwatch(elem) {
+            var time = 0; //private variables
+            var interval;
+            var offset;
+            
+            //private functions
+            function update() {
+                if ( this.isOn) {
+                    time += delta();
+                }
+                
+                var formattedTime = timeFormatter(time);
+                elem.textContent = formattedTime;
+                //console.log(formattedTime);
+            }
+
+            function delta() {   //time that has passed
+                var now = Date.now();
+                var timePassed = now - offset;
+                offset = now;
+                return timePassed;
+
+            }
+            function timeFormatter(timeInMilliseconds) {
+                var time = new Date(timeInMilliseconds); //different than time stated outside scope
+                var minutes = time.getMinutes().toString();
+                var seconds = time.getSeconds().toString();
+
+                if (minutes.length < 2) minutes = '0' + minutes;
+                if (seconds.length < 2) seconds = '0' + seconds;
+                return minutes + ' : ' + seconds;
+
+            }
+
+            //public functions
+            this.isOn = false;
+            
+            this.start = function() {
+                
+                if (!this.isOn) {
+                    interval = setInterval(update.bind(this), 100); //updates every 100ms..
+                    offset = Date.now();
+                    this.isOn = true;
+                }
+            };
+            this.stop = function() {
+                if (this.isOn) {
+                    clearInterval(interval);
+                    interval = null;
+                    this.isOn = false;
+                }
+            };
+            this.reset = function() {
+                time = 0;
+                update();
+            }
+        }
+
+    </script>
+</body>
+</html>
