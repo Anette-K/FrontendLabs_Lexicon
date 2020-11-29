@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collect List Items</title>
+</head>
+<body>
+    <h1>List of Items</h1>
+    <ul id="items">
+        <li>first item <a href="#"  onclick= "deleteItem()">[Delete]</a></li>
+        <li>second item <a href="#"  onclick= "deleteItem()">[Delete]</a></li>
+        <li>third item <a href="#"  onclick= "deleteItem()">[Delete]</a></li>
+    </ul>
+    
+    <input type="text" id="newText" />
+    <input type="button" value="Add" onclick="addItem()">
+    <br>
+    <br>
+
+    <textarea id="result"></textarea>
+    <br>
+    <button onclick="extractText()">Extract Text</button>
+    <script>
+        function addItem() { 
+
+            //Assuming there are already items in the list
+            let items = document.getElementById("items");
+            
+            //copying last listitem, including children (delete link)
+            let cln = items.lastElementChild.cloneNode(true);
+            
+            //changing list item to the userinput 
+            cln.firstChild.nodeValue = document.getElementById("newText").value +' ';
+            
+            //adding the revised listitem
+            document.getElementById("items").appendChild(cln);
+            
+            // function deleteItem() { 
+            //     console.log(document.getElementById(this.id).innerText.toString) };
+        };
+        function deleteItem() { 
+                document.activeElement.parentNode.remove();
+                    };
+        
+        function extractText() {
+            let items = document.getElementById("items").innerText; //!gets all the text..including children..
+            console.log(items)
+            let result = document.getElementById("result");
+            result.innerHTML = items;
+        };
+    </script>
+</body>
+</html>
