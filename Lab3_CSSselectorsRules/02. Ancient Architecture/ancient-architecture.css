@@ -1,0 +1,137 @@
+body {
+    width: 1180px; 
+    color: #000000;
+    font-size: 16px;
+    background-color: #e2d7aa;
+
+    margin: 0 auto;
+    font-family: Roboto, sans-serif;
+    
+    
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    
+    grid-template-areas: 
+        /* 'navbar navbar navbar'
+        'header header header'
+        'img1 img1 img1'
+        'article1 article2 article3'
+        'footer footer footer' */
+        'navbar'
+        'header'
+        'img1'
+        'articles'
+        'footer'
+        ;
+
+}
+img {
+    width: 1100px;
+    height: 450px;
+}
+div.img-container {
+    width: 1600px;
+    height: 450px;
+    margin-top: 65px;
+    grid-area: img1;
+
+}
+h1 {
+    font-size: 60px;
+    font-family: "Indie Flower", cursive;
+    margin-top: 65px;
+    grid-area: header;
+    
+
+}
+a { 
+    text-decoration: unset;
+}
+nav {
+    margin: 30px;
+    grid-area: navbar;
+    
+    
+   
+    
+}
+nav li {
+    list-style: none;
+    display: inline-block;
+        
+}
+nav a {
+    font-size: 28px;
+    color: #000000;
+    
+}
+nav li:first-of-type a {
+    color: #0a2d4a;
+    font-weight: bold;
+}
+nav li:last-of-type a {
+    color: #0a2d4a;
+    font-weight: bold;
+}
+main {
+    grid-area: articles;
+    
+    /* display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas: 
+    'article1 article2 article3'; */
+    
+    display: flex;
+    
+    
+
+    
+
+}
+article {
+    align-content: center;
+    
+}
+main:nth-of-type(1) article  {
+   grid-area: article1;
+   
+    
+}
+main:nth-of-type(2) article {
+    grid-area: article2;
+    
+    
+}
+main:nth-of-type(3) article {
+    grid-area: article3;
+    
+}
+article img {
+    width: 350px;
+    height: 200px;
+    margin-bottom: 20px;
+    
+}
+
+article p:first-of-type:first-letter {
+    font-family: EucrosiaUPC sans-serif;
+    font-size: 40px;
+}
+span a {
+    background: url(images/bg2.jpg);
+    color: #ffffff;
+    padding: 10px;
+    margin-top: 10px;
+    text-transform: uppercase;
+
+}
+article p:last-of-type span:first-of-type a::before { 
+    content: url("images/comment.png");
+    position: relative;
+    right: 5px;
+    top: 7px;
+}
+footer {
+    grid-area: footer;
+}
