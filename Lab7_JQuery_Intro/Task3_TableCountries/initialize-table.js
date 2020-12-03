@@ -26,12 +26,13 @@ function initializeTable() {
     });
     
     $("#countriesTable").on("click", "#delete",function(){ // .on(click,..) works on dynamically added elements
-        console.log("test");
+        
         let anchor = $(this);
         
         //trying to test here.not working. 
-        if(anchor.parent().is("td:last")) {console.log("is last")}
-        if(anchor.is(":first")) {console.log("is first")}
+        if(anchor.parent().is("td:last")) {console.log("is last")} //works
+        if(anchor.parents("tr").is("tr:eq(3)")) {console.log("is first")}
+        
         //
        //not working
        // updateLink(anchor);
